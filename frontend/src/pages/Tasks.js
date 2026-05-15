@@ -20,13 +20,13 @@ const Tasks = () => {
   const fetchAll = async () => {
     try {
       const [tasksRes, projectsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/tasks', { headers }),
-        axios.get('http://localhost:5000/api/projects', { headers })
+        axios.get('https://team-task-manager-production-9319.up.railway.app/api/tasks', { headers }),
+        axios.get('https://team-task-manager-production-9319.up.railway.app/api/projects', { headers })
       ]);
       setTasks(tasksRes.data);
       setProjects(projectsRes.data);
       if (user?.role === 'admin') {
-        const usersRes = await axios.get('http://localhost:5000/api/users', { headers });
+        const usersRes = await axios.get('https://team-task-manager-production-9319.up.railway.app/api/users', { headers });
         setUsers(usersRes.data);
       }
     } catch (err) {
@@ -40,7 +40,7 @@ useEffect(() => { fetchAll(); }, []);
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/tasks',
+      await axios.post('https://team-task-manager-production-9319.up.railway.app/api/tasks',
         { title, description, projectId, assignedToId, dueDate },
         { headers }
       );
@@ -54,7 +54,7 @@ useEffect(() => { fetchAll(); }, []);
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.patch(`http://localhost:5000/api/tasks/${id}`, { status }, { headers });
+      await axios.patch(`https://team-task-manager-production-9319.up.railway.app/api/tasks/${id}`, { status }, { headers });
       fetchAll();
     } catch (err) {
       console.error(err);
@@ -63,7 +63,7 @@ useEffect(() => { fetchAll(); }, []);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${id}`, { headers });
+      await axios.delete(`https://team-task-manager-production-9319.up.railway.app/api/tasks/${id}`, { headers });
       fetchAll();
     } catch (err) {
       console.error(err);

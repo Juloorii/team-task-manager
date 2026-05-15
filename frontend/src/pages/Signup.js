@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', {
+      const res = await axios.post('https://team-task-manager-production-9319.up.railway.app/api/auth/signup', {
         name,
         email,
         password,

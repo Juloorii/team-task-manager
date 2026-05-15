@@ -13,8 +13,8 @@ const Dashboard = () => {
       try {
         const headers = { Authorization: `Bearer ${token}` };
         const [tasksRes, projectsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/tasks', { headers }),
-          axios.get('http://localhost:5000/api/projects', { headers })
+          axios.get('https://team-task-manager-production-9319.up.railway.app/api/tasks', { headers }),
+          axios.get('https://team-task-manager-production-9319.up.railway.app/api/projects', { headers })
         ]);
         setTasks(tasksRes.data);
         setProjects(projectsRes.data);
