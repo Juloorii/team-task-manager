@@ -12,7 +12,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get('https://team-task-manager-production-9319.up.railway.app/api/projects', {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/projects`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProjects(res.data);
@@ -27,7 +27,7 @@ const Projects = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('https://team-task-manager-production-9319.up.railway.app/api/projects',
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/projects`,
         { name, description },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -42,7 +42,7 @@ const Projects = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://team-task-manager-production-9319.up.railway.app/api/projects/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       fetchProjects();

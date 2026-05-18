@@ -9,10 +9,17 @@ const userRoutes = require('./routes/users');
 
 const app = express();
 
+const allowedOrigins = [
+  'https://team-task-manager-ivory-chi.vercel.app',
+  'https://team-task-manager-ivory.vercel.app',
+  'http://localhost:3000'
+];
+
 app.use(cors({
-  origin: '*',
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 app.use(express.json());

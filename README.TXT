@@ -4,7 +4,7 @@ TEAM TASK MANAGER
 LIVE URLs
 ---------
 Frontend: https://team-task-manager-ivory-chi.vercel.app
-Backend API: https://team-task-manager-production-9319.up.railway.app
+Backend API: ${process.env.REACT_APP_API_URL}
 GitHub: https://github.com/Juloorii/team-task-manager
 
 DESCRIPTION
